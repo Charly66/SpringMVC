@@ -22,6 +22,18 @@ public class Effacemoi implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    private String nom;
+    private String prenom;
+
+    public Effacemoi() {
+    }
+
+    public Effacemoi(String nom, String prenom) {
+        this.nom = nom;
+        this.prenom = prenom;
+    }
+    
 
     public Long getId() {
         return id;
@@ -54,6 +66,22 @@ public class Effacemoi implements Serializable {
     @Override
     public String toString() {
         return "streaming.entity.Effacemoi[ id=" + id + " ]";
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
     
 }

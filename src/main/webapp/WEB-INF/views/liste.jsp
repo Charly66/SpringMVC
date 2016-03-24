@@ -13,11 +13,12 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Liste</h1>
+        <h1>Liste d'effacemois</h1>
         <ul>
             <c:forEach items="${liste}" var="effacemoi">
-                <li><a href="detail/${effacemoi.id}">${effacemoi.id}</a></li>
+                <li><a href='<c:url value="/effacemoi/detail/${effacemoi.id}"></c:url>'>${effacemoi.id}</a></li>
             </c:forEach>
         </ul>
+        <a href='<c:url value="/effacemoi/ajouter"></c:url>'>Ajouter nouvel effacemoi</a>
     </body>
 </html>

@@ -7,10 +7,14 @@ package streaming.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import streaming.entity.Effacemoi;
 import streaming.service.EffacemoiCrudService;
 
 /**
@@ -45,6 +49,20 @@ public class EffacemoiController {
         
         model.addAttribute("liste",effacemoiService.findAll());
         return "liste";
+    }
+    
+    @RequestMapping(value = "ajouter", method = RequestMethod.GET)
+    public String lienAjouter(Model model){
+        
+        model.addAttribute("effacemoi",new Effacemoi());
+        return "ajouter";
+    }
+    
+    @RequestMapping(value = "ajouter", method = RequestMethod.POST)
+    public String ajouter(@ModelAttribute(value = "effacemoi") Effacemoi em){
+
+        effacemoiService.save(new Effacemoi(em.getNom(), em.getPrenom()));
+        return "redirect:lister" ;
     }
     
     @RequestMapping(value = "home", method = RequestMethod.GET)

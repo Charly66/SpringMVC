@@ -17,12 +17,15 @@
         <table>
             <thead>
             <th> Id</th>
-            <th> Détail</th>
+            <th> Nom</th>
+            <th> Prénom</th>
             </thead>
             <tr>
                 <td>${effacemoi.id}</td>
-                <td> detail..</td>
+                <td>${effacemoi.nom}</td>
+                 <td>${effacemoi.prenom}</td>
             </tr>
         </table>
+            <a href='<c:url value="/effacemoi/lister"></c:url>'>Retour liste</a>
     </body>
 </html>
